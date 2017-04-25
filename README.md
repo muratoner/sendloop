@@ -11,7 +11,7 @@
 | Complete | account.info.get |
 | Uncomplete | report.list.overall |
 | Uncomplete | list.settings.get |
-| Uncomplete | list.getlist |
+| Complete | list.getlist |
 | Uncomplete | list.get |
 | Uncomplete | suppression.list.getlist |
 | Uncomplete | suppression.list.get |
@@ -39,11 +39,11 @@
 | Uncomplete | subscriber.update |
 | Uncomplete | subscriber.unsubscribe |
 | Uncomplete | subscriber.subscribe |
-| Uncomplete | subscriber.import |
+| Complete | subscriber.import |
 | Uncomplete | suppression.list.add |
 | Uncomplete | campaign.getlistbystatus |
 | Uncomplete | campaign.getlist |
-| Uncomplete | campaign.get |
+| Complete | campaign.get |
 | Uncomplete | report.campaign.webbrowserviews |
 | Uncomplete | report.campaign.unsubscriptions |
 | Uncomplete | report.campaign.spamcomplaints |
@@ -63,8 +63,8 @@
 | Uncomplete | data.campaign.bounces |
 | Uncomplete | campaign.update |
 | Uncomplete | campaign.delete |
-| Uncomplete | campaign.create |
-| Uncomplete | campaign.send |
+| Complete | campaign.create |
+| Complete | campaign.send |
 | Uncomplete | campaign.cancelschedule |
 | Uncomplete | campaign.resume |
 | Uncomplete | campaign.pause |
