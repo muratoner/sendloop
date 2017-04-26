@@ -68,4 +68,4 @@
 | Uncomplete | campaign.cancelschedule |
 | Uncomplete | campaign.resume |
 | Uncomplete | campaign.pause |
-| Uncomplete | account.api.getlist |
+| Complete | account.api.getlist |
