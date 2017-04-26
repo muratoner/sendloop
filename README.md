@@ -9,6 +9,7 @@
 | Complete | system.countries.get |
 | Complete | system.accountdate.get |
 | Complete | account.info.get |
+| Complete | account.info.update |
 | Uncomplete | report.list.overall |
 | Uncomplete | list.settings.get |
 | Complete | list.getlist |
