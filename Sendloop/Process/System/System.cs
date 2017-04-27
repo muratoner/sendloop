@@ -1,60 +1,73 @@
-﻿using Sendloop.Core;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.Threading.Tasks;
 using Sendloop.Result.System;
 
 namespace Sendloop.Process.System {
     public class System {
         private readonly Lazy<HttpClientManager> _http = new Lazy<HttpClientManager>( () => new HttpClientManager() );
 
-        private SendloopInfo SendloopInfo { get; set; }
-
-        public System( SendloopInfo sendloopInfo ) {
-            SendloopInfo = sendloopInfo;
-        }
+        #region GetTimeZones
+        /// <summary>
+        /// Returns the list of time zones defined on the system
+        /// </summary>
+        /// <returns></returns>
+        public ResultSystemTimeZones GetTimeZones()
+            => GetTimeZonesAsync().GetAwaiter().GetResult();
 
         /// <summary>
         /// Returns the list of time zones defined on the system
         /// </summary>
         /// <returns></returns>
-        public ResultSystemTimeZones GetTimeZones() {
-            var arry = new List<KeyValuePair<string, string>> {
-                new KeyValuePair<string, string>("APIKey", SendloopInfo.ApiKey)
-            };
-            return _http.Value.Post<ResultSystemTimeZones, List<KeyValuePair<string, string>>>( SendloopAddress.SystemTimeZones, arry );
-        }
+        public async Task<ResultSystemTimeZones> GetTimeZonesAsync()
+            => await _http.Value.PostAsync<ResultSystemTimeZones>( SendloopAddress.SystemTimeZones );
+        #endregion
+
+        #region GetSystemDate
+        /// <summary>
+        /// Returns the current date and time zone set on Sendloop servers
+        /// </summary>
+        /// <returns></returns>
+        public ResultSystemDate GetSystemDate()
+            => GetSystemDateAsync().GetAwaiter().GetResult();
 
         /// <summary>
         /// Returns the current date and time zone set on Sendloop servers
         /// </summary>
         /// <returns></returns>
-        public ResultSystemDate GetSystemDate() {
-            var arry = new List<KeyValuePair<string, string>> {
-                new KeyValuePair<string, string>("APIKey", SendloopInfo.ApiKey)
-            };
-            return _http.Value.Post<ResultSystemDate, List<KeyValuePair<string, string>>>( SendloopAddress.SystemDate, arry );
-        }
+        public async Task<ResultSystemDate> GetSystemDateAsync()
+            => await _http.Value.PostAsync<ResultSystemDate>( SendloopAddress.SystemDate );
+        #endregion
+
+        #region GetCountries
+        /// <summary>
+        /// Returns the list of countries defined on the system
+        /// </summary>
+        /// <returns></returns>
+        public ResultSystemCountries GetCountries()
+            => GetCountriesAsync().GetAwaiter().GetResult();
 
         /// <summary>
         /// Returns the list of countries defined on the system
         /// </summary>
         /// <returns></returns>
-        public ResultSystemCountries GetCountries() {
-            var arry = new List<KeyValuePair<string, string>> {
-                new KeyValuePair<string, string>("APIKey", SendloopInfo.ApiKey)
-            };
-            return _http.Value.Post<ResultSystemCountries, List<KeyValuePair<string, string>>>( SendloopAddress.SystemCountries, arry );
-        }
+        public async Task<ResultSystemCountries> GetCountriesAsync()
+            => await _http.Value.PostAsync<ResultSystemCountries>( SendloopAddress.SystemCountries );
+        #endregion
+
+        #region GetAccountDate
+        /// <summary>
+        /// Returns the current date and time zone set in the user account settings
+        /// </summary>
+        /// <returns></returns>
+        public ResultAccountDate GetAccountDate()
+            => GetAccountDateAsync().GetAwaiter().GetResult();
 
         /// <summary>
         /// Returns the current date and time zone set in the user account settings
         /// </summary>
         /// <returns></returns>
-        public ResultAccountDate GetAccountDate() {
-            var arry = new List<KeyValuePair<string, string>> {
-                new KeyValuePair<string, string>("APIKey", SendloopInfo.ApiKey)
-            };
-            return _http.Value.Post<ResultAccountDate, List<KeyValuePair<string, string>>>( SendloopAddress.SystemAccountDate, arry );
-        }
+        public async Task<ResultAccountDate> GetAccountDateAsync()
+            => await _http.Value.PostAsync<ResultAccountDate>( SendloopAddress.SystemAccountDate );
+        #endregion
     }
 }

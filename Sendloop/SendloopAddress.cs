@@ -16,5 +16,7 @@
         public static readonly string SystemAccountDate = $"{BaseUrl}System.AccountDate.Get";
 
         public static readonly string AccountInfo = $"{BaseUrl}Account.Info.Get";
+        public static readonly string AccountUpdate = $"{BaseUrl}Account.Info.Update";
+        public static readonly string AccountGetApiKeyList = $"{BaseUrl}Account.API.GetList";
     }
 }

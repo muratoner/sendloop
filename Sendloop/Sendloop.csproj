@@ -50,8 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extension\ListKeyValueStringExt.cs" />
+    <Compile Include="Extension\ObjectExt.cs" />
+    <Compile Include="Extension\StringExt.cs" />
     <Compile Include="HttpClientManager.cs" />
     <Compile Include="Model\Account\AccountInfo.cs" />
+    <Compile Include="Model\Account\AccountInfoUpdate.cs" />
+    <Compile Include="Model\Account\ApiKeyItem.cs" />
     <Compile Include="Model\Campaign\Campaign.cs" />
     <Compile Include="Model\SubscriberList\SubscriberList.cs" />
     <Compile Include="Model\Subscriber\Subscriber.cs" />
@@ -65,6 +70,7 @@
     <Compile Include="Process\SubcriberList\SubscriberList.cs" />
     <Compile Include="Process\System\System.cs" />
     <Compile Include="Result\Account\ResultAccountInfo.cs" />
+    <Compile Include="Result\Account\ResultGetApiList.cs" />
     <Compile Include="Result\Campaign\ResultCampaignGet.cs" />
     <Compile Include="Process\Subscriber\Subscriber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,10 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Param\SubscriberList\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Endpoints.html" />
-    <Content Include="StatusCode.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

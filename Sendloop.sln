@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.10
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sendloop", "Sendloop\Sendloop.csproj", "{D1E48B24-1E82-441D-B9E9-046D3E4256BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sendloop.Test", "Sendloop.Test\Sendloop.Test.csproj", "{16C1EC9E-E0A6-4F98-9443-2E4ED4108A6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D1E48B24-1E82-441D-B9E9-046D3E4256BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1E48B24-1E82-441D-B9E9-046D3E4256BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1E48B24-1E82-441D-B9E9-046D3E4256BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C1EC9E-E0A6-4F98-9443-2E4ED4108A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C1EC9E-E0A6-4F98-9443-2E4ED4108A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C1EC9E-E0A6-4F98-9443-2E4ED4108A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C1EC9E-E0A6-4F98-9443-2E4ED4108A6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

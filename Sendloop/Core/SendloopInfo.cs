@@ -4,6 +4,6 @@
         /// <summary>
         /// 0000-0000-0000-0000-0000-0000-0000-0000 format api key.
         /// </summary>
-        public string ApiKey { get; set; }
+        public static string ApiKey { get; set; }
     }
 }

@@ -1,34 +1,66 @@
-﻿namespace Sendloop {
+﻿using Sendloop.Extension;
+
+namespace Sendloop {
 
     using System.Collections.Generic;
     using System.IO;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Xml.Serialization;
+
     using Flurl.Http;
     using Newtonsoft.Json;
 
+    using Core;
+
     internal class HttpClientManager {
-        internal async Task<TResult> PostAsync<TResult, TModel>( string url, TModel model ) {
-            var res = await url.PostAsync(new FormUrlEncodedContent((IEnumerable<KeyValuePair<string, string>>)model));
-            return JsonConvert.DeserializeObject<TResult>(await res.Content.ReadAsStringAsync());
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="url"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        internal async Task<TResult> PostAsync<TResult>( string url, List<KeyValuePair<string, string>> model = null ) {
+            if ( model.IsNull() )
+                model = new List<KeyValuePair<string, string>>();
+
+            model.Add( new KeyValuePair<string, string>( "APIKey", SendloopInfo.ApiKey ) );
+            var res = await url.PostAsync( new FormUrlEncodedContent( model ) );
+            return JsonConvert.DeserializeObject<TResult>( await res.Content.ReadAsStringAsync() );
         }
 
-        internal TResult Post<TResult, TModel>( string url, TModel model ) {
-            var res = url.PostAsync(new FormUrlEncodedContent((IEnumerable<KeyValuePair<string, string>>)model));
-            var resWaiter = res.GetAwaiter();
-            var resResult = resWaiter.GetResult();
-            var content = resResult.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-            return JsonConvert.DeserializeObject<TResult>(content);
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="url"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        internal TResult Post<TResult>( string url, List<KeyValuePair<string, string>> model )
+            => PostAsync<TResult>( url, model ).GetAwaiter().GetResult();
 
-        internal TResult Deserialize<TResult>(string xml) {
-            var serializer = new XmlSerializer(typeof(TResult));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        internal TResult Post<TResult>( string url )
+            => PostAsync<TResult>( url ).GetAwaiter().GetResult();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="xml"></param>
+        /// <returns></returns>
+        internal TResult Deserialize<TResult>( string xml ) {
+            var serializer = new XmlSerializer( typeof( TResult ) );
             object result;
 
-            using (TextReader reader = new StringReader(xml))
-            {
-                result = serializer.Deserialize(reader);
+            using ( TextReader reader = new StringReader( xml ) ) {
+                result = serializer.Deserialize( reader );
             }
 
             return (TResult)result;

@@ -1,15 +1,12 @@
-﻿using Sendloop.Process.Account;
-
-namespace Sendloop {
+﻿namespace Sendloop {
 
     using Core;
     using Process.Campaign;
     using Process.SubcriberList;
     using Process.Subscriber;
+    using Process.Account;
 
     public class SendloopManager {
-
-        private SendloopInfo SendloopInfo { get; set; }
 
         public Campaign Campaign { get; set; }
         public Subscriber Subscriber { get; set; }
@@ -27,15 +24,16 @@ namespace Sendloop {
         /// </example>
         /// </param>
         /// </summary>
-        public SendloopManager( string apiKey ) {
-            SendloopInfo = new SendloopInfo { ApiKey = apiKey };
+        public SendloopManager( string apiKey )
+        {
+            SendloopInfo.ApiKey = apiKey;
 
             #region Process
-                Campaign = new Campaign( SendloopInfo );
-                Subscriber = new Subscriber( SendloopInfo );
-                SubscriberList = new SubscriberList( SendloopInfo );
-                System = new Process.System.System(SendloopInfo);
-                Account = new Account(SendloopInfo);
+                Campaign = new Campaign();
+                Subscriber = new Subscriber();
+                SubscriberList = new SubscriberList();
+                System = new Process.System.System();
+                Account = new Account();
             #endregion
         }
     }
