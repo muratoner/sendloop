@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sendloop.Extension;
 using Sendloop.Model.Account;
-using Sendloop.Result;
 using Sendloop.Result.Account;
 
 namespace Sendloop.Process.Account {

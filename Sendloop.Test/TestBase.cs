@@ -5,11 +5,11 @@ namespace Sendloop.Test {
     [TestClass]
     public class TestBase
     {
-        protected SendloopManager _sendloopManager;
+        protected SendloopManager SendloopManager;
 
         [TestInitialize]
         public void Initialize() {
-            _sendloopManager = new SendloopManager( "{YOUR-SENDLOOP-API-KEY}" );
+            SendloopManager = new SendloopManager( "{YOUR-SENDLOOP-API-KEY}" );
         }
     }
 }

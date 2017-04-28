@@ -10,13 +10,13 @@
     public class TestAccount : TestBase {
         [TestMethod]
         public void TestGetInfo() {
-            var res = _sendloopManager.Account.GetInfo();
+            var res = SendloopManager.Account.GetInfo();
             Assert.IsTrue(res.Success);
         }
 
         [TestMethod]
         public void TestGetApiKeyList() {
-            var res = _sendloopManager.Account.GetApiKeyList();
+            var res = SendloopManager.Account.GetApiKeyList();
             Assert.IsTrue(res.ApiKeys.Length > 0);
             Assert.IsTrue(res.Success);
         }
@@ -27,8 +27,8 @@
                 CompanyName = "Test Company"
             };
 
-            var accountInfo = _sendloopManager.Account.GetInfo();
-            var resUpdate = _sendloopManager.Account.UpdateInfo(updatedData);
+            var accountInfo = SendloopManager.Account.GetInfo();
+            var resUpdate = SendloopManager.Account.UpdateInfo(updatedData);
 
             Assert.IsTrue(resUpdate.Success);
             Assert.IsTrue(accountInfo.Success);
@@ -36,8 +36,8 @@
 
             updatedData.CompanyName = accountInfo.AccountInfo.CompanyName;
 
-            resUpdate = _sendloopManager.Account.UpdateInfo(updatedData);
-            accountInfo = _sendloopManager.Account.GetInfo();
+            resUpdate = SendloopManager.Account.UpdateInfo(updatedData);
+            accountInfo = SendloopManager.Account.GetInfo();
 
             TestUpdateInfoCompareValues(updatedData, accountInfo);
         }

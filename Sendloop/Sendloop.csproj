@@ -63,7 +63,11 @@
     <Compile Include="Model\SubscriberList\SubscriberListItem.cs" />
     <Compile Include="Model\SubscriberList\SubscriberListUpdateSettings.cs" />
     <Compile Include="Model\SubscriberList\SubscriberListSettings.cs" />
+    <Compile Include="Model\Subscriber\SubscriberGet.cs" />
+    <Compile Include="Model\Subscriber\SubscriberSearchResult.cs" />
     <Compile Include="Param\SubscriberList\ParamSubscriberListUpdate.cs" />
+    <Compile Include="Param\Subscriber\ParamSubscriberGet.cs" />
+    <Compile Include="Param\Subscriber\ParamSubscriberUnsubscribe.cs" />
     <Compile Include="Result\SubscriberList\ResultSubscriberListSettings.cs" />
     <Compile Include="Param\IParamBase.cs" />
     <Compile Include="Param\SubscriberList\ParamSubscriberListGet.cs" />
@@ -89,7 +93,10 @@
     <Compile Include="Result\ErrorCode.cs" />
     <Compile Include="Result\SubscriberList\ResultSubscriberListGet.cs" />
     <Compile Include="Result\SubscriberList\ResultSubscriberListGetList.cs" />
+    <Compile Include="Result\Subscriber\ResultSubscriberGet.cs" />
     <Compile Include="Result\Subscriber\ResultSubscriberImport.cs" />
+    <Compile Include="Result\Subscriber\ResultSubscriberSearch.cs" />
+    <Compile Include="Result\Subscriber\ResultSubscriberUnsubscribe.cs" />
     <Compile Include="Result\System\ResultSystemCountries.cs" />
     <Compile Include="Result\System\ResultAccountDate.cs" />
     <Compile Include="Result\System\ResultSystemDate.cs" />

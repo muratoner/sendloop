@@ -91,6 +91,32 @@ namespace Sendloop.Process.SubcriberList {
             => GetAsync( param ).GetAwaiter().GetResult();
         #endregion
 
+        #region Update
+        /// <summary>
+        /// Update information of a subscriber list
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ResultBase> UpdateAsync( ParamSubscriberListUpdate param ) {
+            var list = new List<KeyValuePair<string, string>> {
+                { nameof(param.ListID), param.ListID.ToString() }
+            };
+
+            if (param.Name.IsNotNullOrEmpty()) 
+                list.Add(nameof(param.Name), param.Name);
+            if( param.OptInMode.IsNotNull() )
+                list.Add( nameof( param.OptInMode ), param.OptInMode.ToString() );
+
+            return await Http.Value.PostAsync<ResultBase>( SendloopAddress.SubscriberListSettingsGet, list );
+        }
+
+        /// <summary>
+        /// Update information of a subscriber list
+        /// </summary>
+        /// <returns></returns>
+        public ResultBase Update( ParamSubscriberListUpdate param )
+            => UpdateAsync( param ).GetAwaiter().GetResult();
+        #endregion
+
         #region GetSettings
         /// <summary>
         /// Returns the settings of the target subscriber list
@@ -161,32 +187,6 @@ namespace Sendloop.Process.SubcriberList {
         /// <returns></returns>
         public ResultBase UpdateSettings( SubscriberListUpdateSettings param )
             => UpdateSettingsAsync( param ).GetAwaiter().GetResult();
-        #endregion
-
-        #region Update
-        /// <summary>
-        /// Update information of a subscriber list
-        /// </summary>
-        /// <returns></returns>
-        public async Task<ResultBase> UpdateAsync( ParamSubscriberListUpdate param ) {
-            var list = new List<KeyValuePair<string, string>> {
-                { nameof(param.ListID), param.ListID.ToString() }
-            };
-
-            if (param.Name.IsNotNullOrEmpty()) 
-                list.Add(nameof(param.Name), param.Name);
-            if( param.OptInMode.IsNotNull() )
-                list.Add( nameof( param.OptInMode ), param.OptInMode.ToString() );
-
-            return await Http.Value.PostAsync<ResultBase>( SendloopAddress.SubscriberListSettingsGet, list );
-        }
-
-        /// <summary>
-        /// Update information of a subscriber list
-        /// </summary>
-        /// <returns></returns>
-        public ResultBase Update( ParamSubscriberListUpdate param )
-            => UpdateAsync( param ).GetAwaiter().GetResult();
         #endregion
     }
 }

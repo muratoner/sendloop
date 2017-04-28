@@ -1,13 +1,16 @@
-﻿using Sendloop.Enum;
+﻿using System;
 using Sendloop.Param.Subscriber;
-using Sendloop.Param.SubscriberList;
 
 namespace Sendloop.Console {
     class Program {
+
+        static readonly Lazy<SendloopManager> SendloopManager = new Lazy<SendloopManager>(() => new SendloopManager( "{YOUR-SENDLOOP-API-KEY}" ));
+
         static void Main( string[] args ) {
-            var res = new SendloopManager( "{YOUR-SENDLOOP-API-KEY}" );
-            var console = res.SubscriberList.Get(new ParamSubscriberListGet {
-                ListID = 5
+            var res = SendloopManager.Value.Subscriber.Get(new ParamSubscriberGet
+            {
+                ListID = 1,
+                EmailAddress = "muhackgames@gmail.com"
             });
         }
     }
