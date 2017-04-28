@@ -77,8 +77,8 @@ namespace Sendloop.Process.Campaign {
                 { nameof(model.HtmlContent), model.HtmlContent }
             };
 
-            for ( int i = 0; i < model.TargetListIDs.Length; i++ )
-                arry.Add( $"TargetListIDs[{i}]", model.TargetListIDs[ i ].ToString() );
+            for( int i = 0; i < model.TargetListIDs.Length; i++ )
+                arry.Add( $"TargetListIDs[{i}]", model.TargetListIDs[i].ToString() );
 
             return await Http.Value.PostAsync<ResultCampaign>( SendloopAddress.CampaignCreate, arry );
         }

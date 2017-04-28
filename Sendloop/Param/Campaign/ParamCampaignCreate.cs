@@ -3,7 +3,7 @@
     /// <summary>
     /// Creates a new email campaign for the new email HTML code editor.
     /// </summary>
-    public class ParamCampaignCreate : ParamBase {
+    public class ParamCampaignCreate {
         /// <summary>
         /// Subject of your email campaign
         /// </summary>

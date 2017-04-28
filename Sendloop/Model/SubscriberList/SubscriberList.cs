@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Sendloop.Model.SubscriberList {
 
-namespace Sendloop.Model.SubscriberList {
+    using System;
+    using System.Collections.Generic;
     public class SubscriberList {
         public int ListID { get; set; }
         public string Name { get; set; }

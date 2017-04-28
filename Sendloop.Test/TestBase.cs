@@ -9,7 +9,7 @@ namespace Sendloop.Test {
 
         [TestInitialize]
         public void Initialize() {
-            _sendloopManager = new SendloopManager("{YOUR-SENDLOOP-API-KEY}");
+            _sendloopManager = new SendloopManager( "{YOUR-SENDLOOP-API-KEY}" );
         }
     }
 }

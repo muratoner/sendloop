@@ -1,9 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Sendloop.Extension;
-using Sendloop.Model.Account;
-using Sendloop.Result.Account;
+﻿namespace Sendloop.Test {
 
-namespace Sendloop.Test {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Extension;
+    using Model.Account;
+    using Result.Account;
+
     [TestClass]
     public class TestAccount : TestBase {
         [TestMethod]

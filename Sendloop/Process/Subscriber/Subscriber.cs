@@ -10,7 +10,8 @@ namespace Sendloop.Process.Subscriber {
 
     public class Subscriber {
 
-        private readonly Lazy<HttpClientManager> _http = new Lazy<HttpClientManager>( () => new HttpClientManager() );
+        private readonly Lazy<HttpClientManager> _http = new Lazy<HttpClientManager>(() => new HttpClientManager());
+
         #region Import
         /// <summary>
         /// 
@@ -30,14 +31,14 @@ namespace Sendloop.Process.Subscriber {
                 {nameof(param.ListID), param.ListID.ToString()}
             };
 
-            for ( var i = 0; i < param.Subscribers.Count; i++ ) {
-                arry.Add( $"Subscribers[{i}][{nameof( Model.Subscriber.Subscriber.CustomField2 )}]", param.Subscribers[ i ].CustomField2 );
-                arry.Add( $"Subscribers[{i}][{nameof( Model.Subscriber.Subscriber.CustomField3 )}]", param.Subscribers[ i ].CustomField3 );
-                arry.Add( $"Subscribers[{i}][{nameof( Model.Subscriber.Subscriber.EmailAddress )}]", param.Subscribers[ i ].EmailAddress );
+            for( var i = 0; i < param.Subscribers.Count; i++ ) {
+                arry.Add( $"Subscribers[{i}][{nameof( Model.Subscriber.Subscriber.CustomField2 )}]", param.Subscribers[i].CustomField2 );
+                arry.Add( $"Subscribers[{i}][{nameof( Model.Subscriber.Subscriber.CustomField3 )}]", param.Subscribers[i].CustomField3 );
+                arry.Add( $"Subscribers[{i}][{nameof( Model.Subscriber.Subscriber.EmailAddress )}]", param.Subscribers[i].EmailAddress );
             }
 
             return await _http.Value.PostAsync<ResultSubscriberImport>( SendloopAddress.SubscriberImport, arry );
         }
-        #endregion
     }
+    #endregion
 }

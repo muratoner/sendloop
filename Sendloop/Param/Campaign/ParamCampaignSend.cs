@@ -2,7 +2,7 @@
     /// <summary>
     /// Set a ready campaign to be sent immediately or in the future
     /// </summary>
-    public class ParamCampaignSend : ParamBase {
+    public class ParamCampaignSend {
         /// <summary>
         /// ID number of the target campaign
         /// </summary>

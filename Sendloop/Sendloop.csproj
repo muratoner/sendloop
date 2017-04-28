@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\OptInModeType.cs" />
     <Compile Include="Extension\ListKeyValueStringExt.cs" />
     <Compile Include="Extension\ObjectExt.cs" />
     <Compile Include="Extension\StringExt.cs" />
@@ -58,11 +59,21 @@
     <Compile Include="Model\Account\AccountInfoUpdate.cs" />
     <Compile Include="Model\Account\ApiKeyItem.cs" />
     <Compile Include="Model\Campaign\Campaign.cs" />
+    <Compile Include="Model\CustomField.cs" />
+    <Compile Include="Model\SubscriberList\SubscriberListItem.cs" />
+    <Compile Include="Model\SubscriberList\SubscriberListUpdateSettings.cs" />
+    <Compile Include="Model\SubscriberList\SubscriberListSettings.cs" />
+    <Compile Include="Param\SubscriberList\ParamSubscriberListUpdate.cs" />
+    <Compile Include="Result\SubscriberList\ResultSubscriberListSettings.cs" />
+    <Compile Include="Param\IParamBase.cs" />
+    <Compile Include="Param\SubscriberList\ParamSubscriberListGet.cs" />
+    <Compile Include="Result\ResultBase.cs" />
+    <Compile Include="Result\SubscriberList\ResultSubscriberListCreate.cs" />
     <Compile Include="Model\SubscriberList\SubscriberList.cs" />
+    <Compile Include="Param\SubscriberList\ParamSubscriberListCreate.cs" />
     <Compile Include="Model\Subscriber\Subscriber.cs" />
     <Compile Include="Param\Campaign\ParamCampaignGet.cs" />
     <Compile Include="Param\Campaign\ParamCampaignSend.cs" />
-    <Compile Include="Param\ParamBase.cs" />
     <Compile Include="Param\Campaign\ParamCampaignCreate.cs" />
     <Compile Include="Param\Subscriber\ParamSubscriberImport.cs" />
     <Compile Include="Process\Account\Account.cs" />
@@ -74,9 +85,9 @@
     <Compile Include="Result\Campaign\ResultCampaignGet.cs" />
     <Compile Include="Process\Subscriber\Subscriber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Result\ResultBase.cs" />
     <Compile Include="Result\Campaign\ResultCampaign.cs" />
     <Compile Include="Result\ErrorCode.cs" />
+    <Compile Include="Result\SubscriberList\ResultSubscriberListGet.cs" />
     <Compile Include="Result\SubscriberList\ResultSubscriberListGetList.cs" />
     <Compile Include="Result\Subscriber\ResultSubscriberImport.cs" />
     <Compile Include="Result\System\ResultSystemCountries.cs" />
@@ -91,8 +102,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Param\SubscriberList\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
