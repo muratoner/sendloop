@@ -1,4 +1,6 @@
-﻿namespace Sendloop.Test {
+﻿using Sendloop.Core;
+
+namespace Sendloop.Test {
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,78 +12,89 @@
     public class TestAccount : TestBase {
         [TestMethod]
         public void TestGetInfo() {
+            if ( SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" ) )
+                return;
+
             var res = SendloopManager.Account.GetInfo();
-            Assert.IsTrue(res.Success);
+            Assert.IsTrue( res.Success );
         }
 
         [TestMethod]
         public void TestGetApiKeyList() {
+            if ( SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" ) )
+                return;
+
             var res = SendloopManager.Account.GetApiKeyList();
-            Assert.IsTrue(res.ApiKeys.Length > 0);
-            Assert.IsTrue(res.Success);
+            Assert.IsTrue( res.ApiKeys.Length > 0 );
+            Assert.IsTrue( res.Success );
         }
 
         [TestMethod]
         public void TestUpdateInfo() {
+            if ( SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" ) )
+                return;
+
             var updatedData = new AccountInfoUpdate {
                 CompanyName = "Test Company"
             };
 
             var accountInfo = SendloopManager.Account.GetInfo();
-            var resUpdate = SendloopManager.Account.UpdateInfo(updatedData);
+            var resUpdate = SendloopManager.Account.UpdateInfo( updatedData );
 
-            Assert.IsTrue(resUpdate.Success);
-            Assert.IsTrue(accountInfo.Success);
-            TestUpdateInfoCompareValues(updatedData, accountInfo);
+            Assert.IsTrue( resUpdate.Success );
+            Assert.IsTrue( accountInfo.Success );
+            TestUpdateInfoCompareValues( updatedData, accountInfo );
 
             updatedData.CompanyName = accountInfo.AccountInfo.CompanyName;
 
-            resUpdate = SendloopManager.Account.UpdateInfo(updatedData);
+            resUpdate = SendloopManager.Account.UpdateInfo( updatedData );
             accountInfo = SendloopManager.Account.GetInfo();
 
-            TestUpdateInfoCompareValues(updatedData, accountInfo);
+            TestUpdateInfoCompareValues( updatedData, accountInfo );
         }
 
-        private void TestUpdateInfoCompareValues(AccountInfoUpdate updatedData, ResultAccountInfo accountInfo)
-        {
-            if(updatedData.LastName.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.LastName, updatedData.LastName);
+        private void TestUpdateInfoCompareValues( AccountInfoUpdate updatedData, ResultAccountInfo accountInfo ) {
+            if ( SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" ) )
+                return;
 
-            if(updatedData.FirstName.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.FirstName, updatedData.FirstName);
+            if ( updatedData.LastName.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.LastName, updatedData.LastName );
 
-            if(updatedData.City.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.City, updatedData.City);
+            if ( updatedData.FirstName.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.FirstName, updatedData.FirstName );
 
-            if(updatedData.State.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.State, updatedData.State);
+            if ( updatedData.City.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.City, updatedData.City );
 
-            if(updatedData.CompanyName.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.CompanyName, updatedData.CompanyName);
+            if ( updatedData.State.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.State, updatedData.State );
 
-            if(updatedData.TimeZone.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.TimeZone, updatedData.TimeZone);
+            if ( updatedData.CompanyName.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.CompanyName, updatedData.CompanyName );
 
-            if(updatedData.Street.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.Street, updatedData.Street);
+            if ( updatedData.TimeZone.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.TimeZone, updatedData.TimeZone );
 
-            if(updatedData.Email.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.Email, updatedData.Email);
+            if ( updatedData.Street.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.Street, updatedData.Street );
 
-            if(updatedData.Fax.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.Fax, updatedData.Fax);
+            if ( updatedData.Email.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.Email, updatedData.Email );
 
-            if(updatedData.Website.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.Website, updatedData.Website);
+            if ( updatedData.Fax.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.Fax, updatedData.Fax );
 
-            if(updatedData.Username.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.Username, updatedData.Username);
+            if ( updatedData.Website.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.Website, updatedData.Website );
 
-            if(updatedData.Country.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.Country, updatedData.Country);
+            if ( updatedData.Username.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.Username, updatedData.Username );
 
-            if(updatedData.Phone.IsNotNullOrEmpty())
-                Assert.AreEqual(accountInfo.AccountInfo.Phone, updatedData.Phone);
+            if ( updatedData.Country.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.Country, updatedData.Country );
+
+            if ( updatedData.Phone.IsNotNullOrEmpty() )
+                Assert.AreEqual( accountInfo.AccountInfo.Phone, updatedData.Phone );
         }
     }
 }
