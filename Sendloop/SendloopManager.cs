@@ -23,10 +23,14 @@
         /// 0000-0000-0000-0000-0000-0000-0000-0000
         /// </example>
         /// </param>
+        /// <param name="subdomain">
+        /// http://[subdomain].sendloop.com/settings/api/
+        /// </param>
         /// </summary>
-        public SendloopManager( string apiKey )
+        public SendloopManager( string apiKey, string subdomain )
         {
             SendloopInfo.ApiKey = apiKey;
+            SendloopInfo.Subdomain = subdomain;
 
             #region Process
                 Campaign = new Campaign();

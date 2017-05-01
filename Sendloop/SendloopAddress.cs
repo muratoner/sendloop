@@ -1,6 +1,9 @@
-﻿namespace Sendloop {
+﻿using Sendloop.Core;
+
+namespace Sendloop {
     internal class SendloopAddress {
-        private const string BaseUrl = "https://app.sendloop.com/api/v3/";
+        private static readonly string BaseUrl = $"https://{SendloopInfo.Subdomain}.sendloop.com/api/v3/";
+
         /// <summary>
         /// Specify how you wish to receive the response from API. Available format options are "json", "xml", "php"
         /// </summary>
