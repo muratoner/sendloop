@@ -40,7 +40,7 @@
 | Uncomplete | export.bounces |
 | Uncomplete | subscriber.update |
 | Complete | subscriber.unsubscribe |
-| Uncomplete | subscriber.subscribe |
+| Complete | subscriber.subscribe |
 | Complete | subscriber.import |
 | Uncomplete | suppression.list.add |
 | Uncomplete | campaign.getlistbystatus |
