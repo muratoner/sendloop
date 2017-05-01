@@ -31,7 +31,7 @@
 | Uncomplete | segment.getlist |
 | Uncomplete | segment.update |
 | Uncomplete | subscriber.get |
-| Uncomplete | subscriber.browse |
+| Complete | subscriber.browse |
 | Uncomplete | subscriber.search |
 | Uncomplete | export.unsubscriptions |
 | Uncomplete | export.suppressionlist |
@@ -43,7 +43,7 @@
 | Complete | subscriber.import |
 | Uncomplete | suppression.list.add |
 | Uncomplete | campaign.getlistbystatus |
-| Uncomplete | campaign.getlist |
+| Complete | campaign.getlist |
 | Complete | campaign.get |
 | Uncomplete | report.campaign.webbrowserviews |
 | Uncomplete | report.campaign.unsubscriptions |
@@ -62,11 +62,11 @@
 | Uncomplete | data.campaign.linkclicks |
 | Uncomplete | data.campaign.browserviews |
 | Uncomplete | data.campaign.bounces |
-| Uncomplete | campaign.update |
-| Uncomplete | campaign.delete |
+| Complete | campaign.update |
+| Complete | campaign.delete |
 | Complete | campaign.create |
 | Complete | campaign.send |
-| Uncomplete | campaign.cancelschedule |
-| Uncomplete | campaign.resume |
-| Uncomplete | campaign.pause |
+| Complete | campaign.cancelschedule |
+| Complete | campaign.resume |
+| Complete | campaign.pause |
 | Complete | account.api.getlist |

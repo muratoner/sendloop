@@ -39,7 +39,7 @@ namespace Sendloop.Process.Account {
         /// </summary>
         /// <returns></returns>
         public async Task<ResultAccountInfo> UpdateInfoAsync( AccountInfoUpdate model ) {
-            var arry = new List<KeyValuePair<string, string>>();
+            var arry = new Dictionary<string, string>();
 
             arry.IfIsNotNullOrEmptyThenAdd( nameof( model.FirstName ), model.FirstName );
             arry.IfIsNotNullOrEmptyThenAdd( nameof( model.City ), model.City );

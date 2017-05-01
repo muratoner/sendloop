@@ -35,7 +35,7 @@ namespace Sendloop.Process.Subscriber {
         /// <param name="param"></param>
         /// <returns></returns>
         public async Task<ResultSubscriberImport> ImportAsync( ParamSubscriberImport param ) {
-            var arry = new List<KeyValuePair<string, string>> {
+            var arry = new Dictionary<string, string> {
                 {nameof(param.ListID), param.ListID.ToString()}
             };
 
@@ -46,6 +46,70 @@ namespace Sendloop.Process.Subscriber {
             }
 
             return await _http.Value.PostAsync<ResultSubscriberImport>( SendloopAddress.SubscriberImport, arry );
+        }
+        #endregion
+
+        #region Subscribe
+        /// <summary>
+        /// Subscribe an email address to the target subscriber list
+        /// </summary>
+        /// <returns></returns>
+        public ResultSubscriberSubscribe Subscribe( ParamSubscriberSubscribe param )
+            => SubscribeAsync( param ).GetAwaiter().GetResult();
+
+        /// <summary>
+        /// Subscribe an email address to the target subscriber list
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        public async Task<ResultSubscriberSubscribe> SubscribeAsync(ParamSubscriberSubscribe param) {
+
+            if(param.IsNull())
+                throw new ArgumentNullException($"{nameof(param)}");
+
+            var arry = new Dictionary<string, string> {
+                { nameof(param.ListID), param.ListID.ToString() },
+                { nameof(param.EmailAddress), param.EmailAddress },
+                { nameof(param.SubscriptionIP), param.SubscriptionIP }
+            };
+
+            if(param.Fields.IsNotNull())
+                foreach (var paramField in param.Fields)
+                    arry.Add($"Fields[{paramField.Key}]", paramField.Value);
+
+            return await _http.Value.PostAsync<ResultSubscriberSubscribe>( SendloopAddress.SubscriberSubscribe, arry );
+        }
+        #endregion
+
+        #region Browse
+        /// <summary>
+        /// Returns the list of subscribers for a specific list and segment
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        public ResultSubscriberBrowse Browse(ParamSubscriberBrowse param)
+            => BrowseAsync( param ).GetAwaiter().GetResult();
+
+
+        /// <summary>
+        /// Returns the list of subscribers for a specific list and segment
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        public async Task<ResultSubscriberBrowse> BrowseAsync( ParamSubscriberBrowse param ) {
+            if (param.IsNull()) {
+                throw new ArgumentNullException($"{nameof(param)}");
+            }
+
+            var arry = new Dictionary<string, string> {
+                { nameof(param.ListID), param.ListID.ToString() }
+            };
+
+            arry.AddWithCondition(param.Limit > 0, nameof(param.Limit), param.Limit);
+            arry.AddWithCondition(param.SegmentID > 0, nameof(param.SegmentID), param.SegmentID);
+            arry.AddWithCondition(param.StartIndex > 0, nameof(param.StartIndex), param.StartIndex);
+
+            return await _http.Value.PostAsync<ResultSubscriberBrowse>( SendloopAddress.SubscriberBrowse, arry );
         }
         #endregion
 
@@ -64,7 +128,7 @@ namespace Sendloop.Process.Subscriber {
         /// <param name="param"></param>
         /// <returns></returns>
         public async Task<ResultSubscriberUnsubscribe> UnsubscribeAsync( ParamSubscriberUnsubscribe param ) {
-            var arry = new List<KeyValuePair<string, string>> {
+            var arry = new Dictionary<string, string> {
                 { nameof(param.ListID), param.ListID.ToString() },
                 { nameof(param.EmailAddress), param.EmailAddress },
                 { nameof(param.UnsubscriptionIP), param.UnsubscriptionIP }
@@ -95,7 +159,7 @@ namespace Sendloop.Process.Subscriber {
         /// </paramref>
         /// <returns></returns>
         public async Task<ResultSubscriberSearch> SearchAsync( string email ) {
-            var arry = new List<KeyValuePair<string, string>> {
+            var arry = new Dictionary<string, string> {
                 { "EmailAddress", email }
             };
 
@@ -116,14 +180,14 @@ namespace Sendloop.Process.Subscriber {
         /// </summary>
         /// <returns></returns>
         public async Task<ResultSubscriberGet> GetAsync( ParamSubscriberGet param ) {
-            var arry = new List<KeyValuePair<string, string>> {
+            var arry = new Dictionary<string, string> {
                 { nameof(param.ListID), param.ListID.ToString() }
             };
 
-            if (param.EmailAddress.IsNotNullOrEmpty())
-                arry.Add(nameof(param.EmailAddress), param.EmailAddress);
-            if(param.SubscriberID > 0)
-                arry.Add(nameof(param.SubscriberID), param.SubscriberID.ToString());
+            if ( param.EmailAddress.IsNotNullOrEmpty() )
+                arry.Add( nameof( param.EmailAddress ), param.EmailAddress );
+            if ( param.SubscriberID > 0 )
+                arry.Add( nameof( param.SubscriberID ), param.SubscriberID.ToString() );
 
             return await _http.Value.PostAsync<ResultSubscriberGet>( SendloopAddress.SubscriberGet, arry );
         }

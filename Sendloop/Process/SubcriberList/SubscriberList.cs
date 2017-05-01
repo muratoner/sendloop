@@ -35,7 +35,7 @@ namespace Sendloop.Process.SubcriberList {
         /// </summary>
         /// <returns></returns>
         public async Task<SubscriberListCreate> CreateAsync( ParamSubscriberListCreate param ) {
-            var list = new List<KeyValuePair<string, string>> {
+            var list = new Dictionary<string, string> {
                 { nameof(param.Name), param.Name },
                 { nameof(param.OptIn), param.OptIn.ToString() }
             };
@@ -56,7 +56,7 @@ namespace Sendloop.Process.SubcriberList {
         /// </summary>
         /// <returns></returns>
         public async Task<ResultBase> DeleteAsync( int listId ) {
-            var list = new List<KeyValuePair<string, string>> {
+            var list = new Dictionary<string, string> {
                 { "ListID", listId.ToString() }
             };
             return await Http.Value.PostAsync<ResultBase>( SendloopAddress.SubscriberListDelete, list );
@@ -76,7 +76,7 @@ namespace Sendloop.Process.SubcriberList {
         /// </summary>
         /// <returns></returns>
         public async Task<ResultSubscriberListGet> GetAsync( ParamSubscriberListGet param ) {
-            var list = new List<KeyValuePair<string, string>> {
+            var list = new Dictionary<string, string> {
                 { nameof(param.ListID), param.ListID.ToString() },
                 { nameof(param.GetCustomFields), param.GetCustomFields.ToString() }
             };
@@ -97,7 +97,7 @@ namespace Sendloop.Process.SubcriberList {
         /// </summary>
         /// <returns></returns>
         public async Task<ResultBase> UpdateAsync( ParamSubscriberListUpdate param ) {
-            var list = new List<KeyValuePair<string, string>> {
+            var list = new Dictionary<string, string> {
                 { nameof(param.ListID), param.ListID.ToString() }
             };
 
@@ -126,7 +126,7 @@ namespace Sendloop.Process.SubcriberList {
         /// </param>
         /// <returns></returns>
         public async Task<ResultSubscriberListSettings> GetSettingsAsync( int listId ) {
-            var list = new List<KeyValuePair<string, string>> {
+            var list = new Dictionary<string, string> {
                 { "ListID", listId.ToString() }
             };
             return await Http.Value.PostAsync<ResultSubscriberListSettings>( SendloopAddress.SubscriberListSettingsGet, list );
@@ -149,7 +149,7 @@ namespace Sendloop.Process.SubcriberList {
         /// </summary>
         /// <returns></returns>
         public async Task<ResultBase> UpdateSettingsAsync( SubscriberListUpdateSettings param ) {
-            var list = new List<KeyValuePair<string, string>> {
+            var list = new Dictionary<string, string> {
                 { nameof(param.ListID), param.ListID.ToString() }
             };
 

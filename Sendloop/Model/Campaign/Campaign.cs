@@ -17,7 +17,6 @@ namespace Sendloop.Model.Campaign {
         public string SendDate { get; set; }
         public string SendTime { get; set; }
         public string SendTimeZone { get; set; }
-        public string SendProcessFinishedOn { get; set; }
         public int TotalRecipients { get; set; }
         public int TotalSent { get; set; }
         public int TotalFailed { get; set; }
@@ -35,6 +34,5 @@ namespace Sendloop.Model.Campaign {
         public string GoogleAnalyticsEnable { get; set; }
         public string GoogleAnalyticsDomains { get; set; }
         public string PublicTinyContentLink { get; set; }
-        public IList<string> Lists { get; set; }
     }
 }

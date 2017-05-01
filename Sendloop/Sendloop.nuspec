@@ -11,7 +11,7 @@
     <iconUrl>https://sendloop.com/images/logos/sendloop-logo-1.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Build a long-lasting communication with your customers. Marketing automation and email marketing are the two most powerful channels.</description>
-    <releaseNotes>Added new endpoints.</releaseNotes>
+    <releaseNotes>Added new methods.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Sendloop</tags>
   </metadata>

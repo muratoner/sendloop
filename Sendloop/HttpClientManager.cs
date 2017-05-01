@@ -21,11 +21,11 @@ namespace Sendloop {
         /// <param name="url"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        internal async Task<TResult> PostAsync<TResult>( string url, List<KeyValuePair<string, string>> model = null ) {
+        internal async Task<TResult> PostAsync<TResult>( string url, Dictionary<string, string> model = null ) {
             if ( model.IsNull() )
-                model = new List<KeyValuePair<string, string>>();
+                model = new Dictionary<string, string>();
 
-            model.Add( new KeyValuePair<string, string>( "APIKey", SendloopInfo.ApiKey ) );
+            model.Add("APIKey", SendloopInfo.ApiKey );
             var res = await url.PostAsync( new FormUrlEncodedContent( model ) );
             return JsonConvert.DeserializeObject<TResult>( await res.Content.ReadAsStringAsync() );
         }
@@ -37,7 +37,7 @@ namespace Sendloop {
         /// <param name="url"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        internal TResult Post<TResult>( string url, List<KeyValuePair<string, string>> model )
+        internal TResult Post<TResult>( string url, Dictionary<string, string> model )
             => PostAsync<TResult>( url, model ).GetAwaiter().GetResult();
 
         /// <summary>
