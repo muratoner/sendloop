@@ -1,4 +1,4 @@
-## Sendloop [![Build status](https://ci.appveyor.com/api/projects/status/y0rl0kklfxttg05q?svg=true)](https://ci.appveyor.com/project/muratoner/sendloop)
+# SENDLOOP [![Build status](https://ci.appveyor.com/api/projects/status/y0rl0kklfxttg05q?svg=true)](https://ci.appveyor.com/project/muratoner/sendloop)
 
 
 ### Endpoints Progress
