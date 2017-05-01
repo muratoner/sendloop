@@ -1,7 +1,12 @@
-# SENDLOOP [![Build status](https://ci.appveyor.com/api/projects/status/y0rl0kklfxttg05q?svg=true)](https://ci.appveyor.com/project/muratoner/sendloop)
+# Sendloop [![Build status](https://ci.appveyor.com/api/projects/status/y0rl0kklfxttg05q?svg=true)](https://ci.appveyor.com/project/muratoner/sendloop)
 
+## Quick Start
+Install the [Nuget Package](https://www.nuget.org/packages/Sendloop) from the package manager console:
+```powershell
+Install Package Sendloop
+```
 
-### Endpoints Progress
+## Endpoints Progress
 
 | Progress | Endpoint |
 | ------ | ------ |
