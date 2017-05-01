@@ -19,6 +19,7 @@
 | Complete | list.update |
 | Complete | list.settings.update |
 | Complete | list.create |
+| Complete | list.delete |
 | Uncomplete | customfield.create |
 | Uncomplete | customfield.delete |
 | Uncomplete | customfield.get |
@@ -30,15 +31,15 @@
 | Uncomplete | segment.get |
 | Uncomplete | segment.getlist |
 | Uncomplete | segment.update |
-| Uncomplete | subscriber.get |
+| Complete | subscriber.get |
 | Uncomplete | subscriber.browse |
-| Uncomplete | subscriber.search |
+| Complete | subscriber.search |
 | Uncomplete | export.unsubscriptions |
 | Uncomplete | export.suppressionlist |
 | Uncomplete | export.spamcomplaints |
 | Uncomplete | export.bounces |
 | Uncomplete | subscriber.update |
-| Uncomplete | subscriber.unsubscribe |
+| Complete | subscriber.unsubscribe |
 | Uncomplete | subscriber.subscribe |
 | Complete | subscriber.import |
 | Uncomplete | suppression.list.add |
