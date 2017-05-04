@@ -68,6 +68,7 @@
     <Compile Include="Model\Subscriber\SubscriberBrowse.cs" />
     <Compile Include="Model\Subscriber\SubscriberGet.cs" />
     <Compile Include="Model\Subscriber\SubscriberSearchResult.cs" />
+    <Compile Include="Model\SuppressionList\SuppressionListItem.cs" />
     <Compile Include="Param\Campaign\ParamCampaignList.cs" />
     <Compile Include="Param\Campaign\ParamCampaignUpdate.cs" />
     <Compile Include="Param\SubscriberList\ParamSubscriberListUpdate.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Param\Subscriber\ParamSubscriberGet.cs" />
     <Compile Include="Param\Subscriber\ParamSubscriberSubscribe.cs" />
     <Compile Include="Param\Subscriber\ParamSubscriberUnsubscribe.cs" />
+    <Compile Include="Param\Subscriber\ParamSubscriberUpdate.cs" />
+    <Compile Include="Process\SuppressionList\SuppressionList.cs" />
     <Compile Include="Result\Campaign\ResultCampaignGetList.cs" />
     <Compile Include="Result\SubscriberList\ResultSubscriberListSettings.cs" />
     <Compile Include="Param\IParamBase.cs" />
@@ -107,6 +110,9 @@
     <Compile Include="Result\Subscriber\ResultSubscriberSearch.cs" />
     <Compile Include="Result\Subscriber\ResultSubscriberSubscribe.cs" />
     <Compile Include="Result\Subscriber\ResultSubscriberUnsubscribe.cs" />
+    <Compile Include="Result\SuppressionList\ResultSuppressionListAdd.cs" />
+    <Compile Include="Result\SuppressionList\ResultSuppressionListGet.cs" />
+    <Compile Include="Result\SuppressionList\ResultSuppressionList.cs" />
     <Compile Include="Result\System\ResultSystemCountries.cs" />
     <Compile Include="Result\System\ResultAccountDate.cs" />
     <Compile Include="Result\System\ResultSystemDate.cs" />
@@ -119,6 +125,8 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Param\SuppressionList\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

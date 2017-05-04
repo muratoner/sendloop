@@ -1,7 +1,12 @@
-﻿namespace Sendloop.Model.Subscriber {
+﻿using System.Collections.Generic;
+
+namespace Sendloop.Model.Subscriber {
     public class Subscriber {
         public string EmailAddress { get; set; }
-        public string CustomField2 { get; set; }
-        public string CustomField3 { get; set; }
+        public Dictionary<string, string> Fields { get; set; }
+
+        public Subscriber() {
+            Fields = new Dictionary<string, string>();
+        }
     }
 }

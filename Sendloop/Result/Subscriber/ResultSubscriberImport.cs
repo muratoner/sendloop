@@ -3,6 +3,5 @@
         public int TotalImported { get; set; }
         public int TotalDuplicate { get; set; }
         public int TotalFailed { get; set; }
-        public bool Success { get; set; }
     }
 }

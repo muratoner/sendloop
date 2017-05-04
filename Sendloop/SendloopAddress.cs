@@ -1,8 +1,11 @@
-﻿using Sendloop.Core;
+﻿using Sendloop.Extension;
 
 namespace Sendloop {
+
+    using Core;
+
     internal class SendloopAddress {
-        private static readonly string BaseUrl = $"https://{SendloopInfo.Subdomain}.sendloop.com/api/v3/";
+        private static readonly string BaseUrl = $"https://{( SendloopInfo.Subdomain.IsNotNullOrEmpty() ? SendloopInfo.Subdomain : "app" )}.sendloop.com/api/v3/";
 
         /// <summary>
         /// Specify how you wish to receive the response from API. Available format options are "json", "xml", "php"
@@ -15,6 +18,11 @@ namespace Sendloop {
         public static readonly string SubscriberSearch = $"{BaseUrl}Subscriber.Search/{Format}";
         public static readonly string SubscriberGet = $"{BaseUrl}Subscriber.Get/{Format}";
         public static readonly string SubscriberBrowse = $"{BaseUrl}Subscriber.Browse/{Format}";
+        public static readonly string SubscriberUpdate = $"{BaseUrl}Subscriber.Update/{Format}";
+
+        public static readonly string SuppressionList = $"{BaseUrl}Suppression.List.Getlist/{Format}";
+        public static readonly string SuppressionListGet = $"{BaseUrl}Suppression.List.Get/{Format}";
+        public static readonly string SuppressionListAdd = $"{BaseUrl}Suppression.List.Add/{Format}";
 
         public static readonly string CampaignCreate = $"{BaseUrl}Campaign.Create/{Format}";
         public static readonly string CampaignSend = $"{BaseUrl}Campaign.Send/{Format}";

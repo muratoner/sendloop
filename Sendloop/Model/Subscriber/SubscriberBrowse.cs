@@ -9,6 +9,5 @@
         public string UnsubscriptionDate { get; set; }
         public string UnsubscriptionIP { get; set; }
         public string OptInDate { get; set; }
-        public string CustomField2 { get; set; }
     }
 }

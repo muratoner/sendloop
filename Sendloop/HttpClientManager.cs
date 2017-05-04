@@ -21,6 +21,22 @@ namespace Sendloop {
         /// <param name="url"></param>
         /// <param name="model"></param>
         /// <returns></returns>
+        internal async Task<string> PostAsync( string url, Dictionary<string, string> model = null ) {
+            if ( model.IsNull() )
+                model = new Dictionary<string, string>();
+
+            model.Add("APIKey", SendloopInfo.ApiKey );
+            var res = await url.PostAsync( new FormUrlEncodedContent( model ) );
+            return await res.Content.ReadAsStringAsync();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="url"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         internal async Task<TResult> PostAsync<TResult>( string url, Dictionary<string, string> model = null ) {
             if ( model.IsNull() )
                 model = new Dictionary<string, string>();
