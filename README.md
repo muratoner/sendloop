@@ -20,8 +20,8 @@ Install Package Sendloop
 | Complete | list.settings.get |
 | Complete | list.getlist |
 | Complete | list.get |
-| Uncomplete | suppression.list.getlist |
-| Uncomplete | suppression.list.get |
+| Complete | suppression.list.getlist |
+| Complete | suppression.list.get |
 | Complete | list.update |
 | Complete | list.settings.update |
 | Complete | list.create |
@@ -44,11 +44,11 @@ Install Package Sendloop
 | Uncomplete | export.suppressionlist |
 | Uncomplete | export.spamcomplaints |
 | Uncomplete | export.bounces |
-| Uncomplete | subscriber.update |
+| Complete | subscriber.update |
 | Complete | subscriber.unsubscribe |
 | Complete | subscriber.subscribe |
 | Complete | subscriber.import |
-| Uncomplete | suppression.list.add |
+| Complete | suppression.list.add |
 | Uncomplete | campaign.getlistbystatus |
 | Complete | campaign.getlist |
 | Complete | campaign.get |
