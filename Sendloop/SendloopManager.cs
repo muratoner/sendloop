@@ -1,4 +1,6 @@
-﻿namespace Sendloop {
+﻿using Sendloop.Process.TransactionEmail;
+
+namespace Sendloop {
 
     using Core;
     using Process.Campaign;
@@ -15,6 +17,7 @@
         public Process.System.System System { get; set; }
         public Account Account { get; set; }
         public SuppressionList SuppressionList { get; set; }
+        //public TransactionEmail TransactionEmail { get; set; }
 
         /// <summary>
         /// Required api key parameter for correct api communication.
@@ -37,6 +40,7 @@
             System = new Process.System.System();
             Account = new Account();
             SuppressionList = new SuppressionList();
+            //TransactionEmail = new TransactionEmail();
             #endregion
         }
 
@@ -53,7 +57,7 @@
         /// http://[subdomain].sendloop.com/settings/api/
         /// </param>
         /// </summary>
-        public SendloopManager( string apiKey, string subdomain ) : this(subdomain)
+        public SendloopManager( string apiKey, string subdomain ) : this(apiKey)
         {
             SendloopInfo.Subdomain = subdomain;
         }

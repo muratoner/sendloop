@@ -61,6 +61,9 @@
     <Compile Include="Model\Account\ApiKeyItem.cs" />
     <Compile Include="Model\Campaign\Campaign.cs" />
     <Compile Include="Model\Campaign\CampaignGet.cs" />
+    <Compile Include="Model\Campaign\Enum\CampaignStatus.cs" />
+    <Compile Include="Model\Campaign\Enum\OrderBySort.cs" />
+    <Compile Include="Model\Campaign\Enum\OrderByField.cs" />
     <Compile Include="Model\CustomField.cs" />
     <Compile Include="Model\SubscriberList\SubscriberListItem.cs" />
     <Compile Include="Model\SubscriberList\SubscriberListUpdateSettings.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="Model\Subscriber\SubscriberGet.cs" />
     <Compile Include="Model\Subscriber\SubscriberSearchResult.cs" />
     <Compile Include="Model\SuppressionList\SuppressionListItem.cs" />
+    <Compile Include="Param\Campaign\ParamCampaignGetListByStatus.cs" />
     <Compile Include="Param\Campaign\ParamCampaignList.cs" />
     <Compile Include="Param\Campaign\ParamCampaignUpdate.cs" />
     <Compile Include="Param\SubscriberList\ParamSubscriberListUpdate.cs" />
@@ -77,8 +81,11 @@
     <Compile Include="Param\Subscriber\ParamSubscriberSubscribe.cs" />
     <Compile Include="Param\Subscriber\ParamSubscriberUnsubscribe.cs" />
     <Compile Include="Param\Subscriber\ParamSubscriberUpdate.cs" />
+    <Compile Include="Param\TransactionEmail\ParamTransactionEmailSend.cs" />
     <Compile Include="Process\SuppressionList\SuppressionList.cs" />
+    <Compile Include="Process\TransactionEmail\TransactionEmail.cs" />
     <Compile Include="Result\Campaign\ResultCampaignGetList.cs" />
+    <Compile Include="Result\Campaign\ResultCampaignGetListByStatus.cs" />
     <Compile Include="Result\SubscriberList\ResultSubscriberListSettings.cs" />
     <Compile Include="Param\IParamBase.cs" />
     <Compile Include="Param\SubscriberList\ParamSubscriberListGet.cs" />
@@ -117,6 +124,7 @@
     <Compile Include="Result\System\ResultAccountDate.cs" />
     <Compile Include="Result\System\ResultSystemDate.cs" />
     <Compile Include="Result\System\ResultSystemTimeZones.cs" />
+    <Compile Include="Result\TransactionEmail\ResultTransactionEmailSend.cs" />
     <Compile Include="SendloopAddress.cs" />
     <Compile Include="Core\SendloopInfo.cs" />
     <Compile Include="SendloopManager.cs" />

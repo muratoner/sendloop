@@ -251,7 +251,23 @@ namespace Sendloop.Process.Campaign {
         #endregion
 
         #region GetListByStatus
+        /// <summary>
+        /// Returns campaigns based on status.
+        /// </summary>
+        /// <returns></returns>
+        public ResultCampaignGetListByStatus GetListByStatus(ParamCampaignGetListByStatus param)
+            => GetListByStatusAsync(param).GetAwaiter().GetResult();
 
+        /// <summary>
+        /// Returns campaigns based on status.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ResultCampaignGetListByStatus> GetListByStatusAsync(ParamCampaignGetListByStatus param) {
+            var arry = new Dictionary<string, string> {
+                { "CampaignStatus", param.CampaignStatus.ToString() }
+            };
+            return await Http.Value.PostAsync<ResultCampaignGetListByStatus>(SendloopAddress.CampaignGetListByStatus, arry);
+        }
         #endregion
 
         #region GetList

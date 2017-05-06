@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Sendloop.Result.SubscriberList {
+﻿namespace Sendloop.Result.SubscriberList {
 
     public class ResultSubscriberListGetList : ResultBase {
-        public List<Model.SubscriberList.SubscriberList> Lists { get; set; }
+        public Model.SubscriberList.SubscriberList[] Lists { get; set; }
     }
 }

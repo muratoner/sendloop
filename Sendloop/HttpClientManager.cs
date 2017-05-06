@@ -1,7 +1,6 @@
-﻿using Sendloop.Extension;
+﻿namespace Sendloop {
 
-namespace Sendloop {
-
+    using Extension;
     using System.Collections.Generic;
     using System.IO;
     using System.Net.Http;
@@ -43,7 +42,8 @@ namespace Sendloop {
 
             model.Add("APIKey", SendloopInfo.ApiKey );
             var res = await url.PostAsync( new FormUrlEncodedContent( model ) );
-            return JsonConvert.DeserializeObject<TResult>( await res.Content.ReadAsStringAsync() );
+            var content = await res.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<TResult>( content );
         }
 
         /// <summary>

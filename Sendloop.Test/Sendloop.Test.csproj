@@ -56,6 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="TestSubscriberList.cs" />
+    <Compile Include="TestCampaign.cs" />
+    <Compile Include="TestTransactionEmail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

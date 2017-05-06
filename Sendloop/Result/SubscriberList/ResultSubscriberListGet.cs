@@ -5,6 +5,6 @@ using Sendloop.Model.SubscriberList;
 namespace Sendloop.Result.SubscriberList {
     public class ResultSubscriberListGet : ResultBase {
         public SubscriberListItem List { get; set; }
-        public IList<CustomField> CustomFields { get; set; }
+        public CustomField[] CustomFields { get; set; }
     }
 }

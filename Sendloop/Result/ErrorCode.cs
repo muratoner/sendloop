@@ -123,6 +123,8 @@ namespace Sendloop.Result {
         [Description("The HTML content of your email campaign contains script, flash or java")]
         TheHtmlContentContainsScriptFlashOrJava2 = 160,
         [Description("You need to complete profile setup first. Login to your Sendloop account and go to profile settings section.")]
-        YouNeedToCompleteProfileSetupFirst = 161
+        YouNeedToCompleteProfileSetupFirst = 161,
+        [Description("No corresponding subscriber list found for the requested list ID")]
+        ListNotFoundWithYourListId = 212
     }
 }

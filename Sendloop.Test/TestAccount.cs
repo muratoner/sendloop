@@ -1,6 +1,4 @@
-﻿using Sendloop.Core;
-
-namespace Sendloop.Test {
+﻿namespace Sendloop.Test {
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,7 +10,7 @@ namespace Sendloop.Test {
     public class TestAccount : TestBase {
         [TestMethod]
         public void TestGetInfo() {
-            if ( SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" ) )
+            if ( !CheckApiKey() )
                 return;
 
             var res = SendloopManager.Account.GetInfo();
@@ -21,7 +19,7 @@ namespace Sendloop.Test {
 
         [TestMethod]
         public void TestGetApiKeyList() {
-            if ( SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" ) )
+            if ( !CheckApiKey() )
                 return;
 
             var res = SendloopManager.Account.GetApiKeyList();
@@ -31,7 +29,7 @@ namespace Sendloop.Test {
 
         [TestMethod]
         public void TestUpdateInfo() {
-            if ( SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" ) )
+            if ( !CheckApiKey() )
                 return;
 
             var updatedData = new AccountInfoUpdate {
@@ -54,7 +52,7 @@ namespace Sendloop.Test {
         }
 
         private void TestUpdateInfoCompareValues( AccountInfoUpdate updatedData, ResultAccountInfo accountInfo ) {
-            if ( SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" ) )
+            if ( !CheckApiKey() )
                 return;
 
             if ( updatedData.LastName.IsNotNullOrEmpty() )
