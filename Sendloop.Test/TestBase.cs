@@ -1,4 +1,5 @@
-﻿using Sendloop.Core;
+﻿using System;
+using Sendloop.Core;
 
 namespace Sendloop.Test {
 
@@ -16,7 +17,8 @@ namespace Sendloop.Test {
         protected bool CheckApiKey()
         {
             if (SendloopInfo.ApiKey.Equals( "{YOUR-SENDLOOP-API-KEY}" )) {
-                Assert.Fail("Invalid api key. Please enter valid key. If you want new api key then visit this url(http://[your-account-key].sendloop.com/settings/api/)");
+                Console.Write("Invalid api key. Please enter valid key. If you want new api key then visit this url(http://[your-account-key].sendloop.com/settings/api/)");
+                return false;
             }
             return true;
         }
