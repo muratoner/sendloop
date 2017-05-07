@@ -1,4 +1,4 @@
-# Sendloop [![Build status](https://ci.appveyor.com/api/projects/status/y0rl0kklfxttg05q?svg=true)](https://ci.appveyor.com/project/muratoner/sendloop)
+# Sendloop [![Build status](https://ci.appveyor.com/api/projects/status/y0rl0kklfxttg05q?svg=true)](https://ci.appveyor.com/project/muratoner/sendloop) [![Gitter](https://badges.gitter.im/muratoner/Sendloop.svg)](https://gitter.im/muratoner/Sendloop?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Quick Start
 Install the [Nuget Package](https://www.nuget.org/packages/Sendloop) from the package manager console:
