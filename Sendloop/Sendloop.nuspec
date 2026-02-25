@@ -1,18 +1,33 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
     <authors>Murat ÖNER</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://github.com/muratoner/Sendloop</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/muratoner/Sendloop</projectUrl>
-    <iconUrl>https://sendloop.com/images/logos/sendloop-logo-1.png</iconUrl>
+    <repository type="git" url="https://github.com/muratoner/Sendloop.git" />
+    <icon>icon.png</icon>
+    <readme>README.NUGET.md</readme>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Build a long-lasting communication with your customers. Marketing automation and email marketing are the two most powerful channels.</description>
-    <releaseNotes>Added new methods.</releaseNotes>
+    <releaseNotes>Best-practice package metadata applied: SPDX license expression, repository metadata, embedded README and 128x128 icon.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Sendloop Email Sendloopv3 v3 3</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Flurl" version="[2.3.0]" />
+        <dependency id="Flurl.Http" version="[1.1.2]" />
+        <dependency id="Newtonsoft.Json" version="[10.0.2]" />
+      </group>
+    </dependencies>
   </metadata>
+  <files>
+    <file src="bin\Release\Sendloop.dll" target="lib\net45" />
+    <file src="icon.png" target="" />
+    <file src="LICENSE.txt" target="" />
+    <file src="README.NUGET.md" target="README.NUGET.md" />
+  </files>
 </package>

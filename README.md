@@ -1,9 +1,92 @@
 # Sendloop [![Build status](https://ci.appveyor.com/api/projects/status/y0rl0kklfxttg05q?svg=true)](https://ci.appveyor.com/project/muratoner/sendloop) [![Gitter](https://badges.gitter.im/muratoner/Sendloop.svg)](https://gitter.im/muratoner/Sendloop?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-## Quick Start
-Install the [Nuget Package](https://www.nuget.org/packages/Sendloop) from the package manager console:
+Unofficial .NET client for Sendloop v3 API endpoints.
+
+## Install
+
+Install the [NuGet package](https://www.nuget.org/packages/Sendloop):
+
 ```powershell
-Install Package Sendloop
+Install-Package Sendloop
+```
+
+## Solution Structure
+
+- `Sendloop`: Main class library (`.NET Framework 4.5`)
+- `Sendloop.Test`: MSTest test project (`.NET Framework 4.5`)
+- `Sendloop.Console`: Small console sample project
+
+Primary facade:
+
+```csharp
+var manager = new SendloopManager("YOUR_API_KEY");
+var accountInfo = manager.Account.GetInfo();
+```
+
+## Supported Modules
+
+`SendloopManager` exposes these modules:
+
+- `System`
+- `Account`
+- `SubscriberList`
+- `Subscriber`
+- `Campaign`
+- `SuppressionList`
+
+## Build From Source
+
+This repository uses classic (non-SDK-style) `.csproj` files and `packages.config`.
+
+```bash
+nuget restore Sendloop.sln
+msbuild Sendloop.sln /p:Configuration=Release
+```
+
+Notes:
+
+- `dotnet test` does not discover/run these tests directly because the project is non-SDK-style MSTest.
+- Preferred test execution is Visual Studio Test Explorer on Windows.
+
+## Test Project Analysis
+
+`Sendloop.Test` is mostly integration-oriented and requires a real Sendloop API key:
+
+1. Set your API key in `Sendloop.Test/TestBase.cs` (`{YOUR-SENDLOOP-API-KEY}` placeholder).
+2. Tests short-circuit if the placeholder key is still present.
+
+Current coverage highlights:
+
+- `TestAccount`
+  - `GetInfo`
+  - `GetApiKeyList`
+  - `UpdateInfo` (updates account data and restores original value)
+- `TestCampaign`
+  - `GetList`
+  - `GetListByStatus` test exists but is commented out
+- `TestTransactionEmail`
+  - Method scaffold exists, send/assert section is commented out
+- `TestSubscriberList`
+  - `TestCreate` method currently empty
+
+## Packaging
+
+Build release first, then pack:
+
+```bash
+nuget pack Sendloop/Sendloop.csproj -Properties Configuration=Release -OutputDirectory artifacts
+```
+
+Push package:
+
+```bash
+nuget push artifacts/Sendloop.<version>.nupkg -Source https://api.nuget.org/v3/index.json
+```
+
+If needed, set API key once:
+
+```bash
+nuget setapikey <NUGET_API_KEY> -Source https://api.nuget.org/v3/index.json
 ```
 
 ## Endpoints Progress
